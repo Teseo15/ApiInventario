@@ -1,0 +1,16 @@
+package group7.inventario.inventario.producto;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface ProductoRepository extends JpaRepository<Producto,Long> {
+
+
+
+    @Query("SELECT p FROM Producto p WHERE p.nombre=?1")
+    Optional<Producto> findEmployeeByProductoExists(String nombre);
+}

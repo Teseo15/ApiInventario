@@ -5,7 +5,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {
@@ -19,5 +19,21 @@ public class RegistrationRequest {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

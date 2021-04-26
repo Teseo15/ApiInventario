@@ -15,7 +15,7 @@ import java.util.Collections;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NoArgsConstructor
+
 @Entity
 public class AppUser implements UserDetails {
 
@@ -38,8 +38,8 @@ public class AppUser implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
     public AppUser() {
     }
@@ -52,6 +52,14 @@ public class AppUser implements UserDetails {
         this.appUserRole = appUserRole;
         this.locked = locked;
         this.enabled = enabled;
+    }
+
+    public AppUser(String firstName, String lastName, String email, String password, AppUserRole user) {
+        this.name = firstName;
+        this.username = lastName;
+        this.email = email;
+        this.password = password;
+        this.appUserRole = user;
     }
 
     @Override

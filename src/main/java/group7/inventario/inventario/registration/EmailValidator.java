@@ -8,21 +8,7 @@ import java.util.function.Predicate;
 public class EmailValidator implements Predicate<String> {
     @Override
     public boolean test(String s) {
+//        TODO: Regex to validate email
         return true;
-    }
-
-    @Override
-    public Predicate<String> and(Predicate<? super String> other) {
-        return null;
-    }
-
-    @Override
-    public Predicate<String> negate() {
-        return null;
-    }
-
-    @Override
-    public Predicate<String> or(Predicate<? super String> other) {
-        return null;
     }
 }

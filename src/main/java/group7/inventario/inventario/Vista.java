@@ -10,4 +10,9 @@ public class Vista {
 
         return "login";
     }
+    @RequestMapping("/registrar")
+    public String eliminaar() {
+
+        return "registrar";
+    }
 }

@@ -8,7 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class ControllerSecuryWeb implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/fazadmin/login").setViewName("login");
+        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/").setViewName("dashboard");
+        registry.addViewController("/dashboard").setViewName("dashboard");
 
     }
 

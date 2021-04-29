@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "/fazadmin")
+@RequestMapping(path = "")
 public class RegistrationController {
 
     private final RegistrationService registrationService;
@@ -16,10 +16,10 @@ public class RegistrationController {
 
 
 
-    @PostMapping("/login")
+    @PostMapping("/registration")
     public String register(@RequestBody RegistrationRequest request) {
         registrationService.register(request);
-        return "login";
+        return "registro";
     }
     @GetMapping(path = "confirm")
     public String confirm (@RequestParam("token")String token){

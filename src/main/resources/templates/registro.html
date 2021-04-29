@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head  th:replace="/layout/template :: header" >
+
+</head>
+<body>
+<div th:if="${param.error}">
+    El usuario ya existe
+</div>
+<!--Mensaje cuando se desconecta
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>-->
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form th:action="@{/registration}" method="post">
+            <input type="email" id="login" class="fadeIn second" name="username" placeholder="login">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Sign In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Olvido su contraseña?</a>
+            <a class="underlineHover" href="/registration">Crear Cuenta?</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

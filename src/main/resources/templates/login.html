@@ -6,11 +6,12 @@
     </head>
     <body>
     <div th:if="${param.error}">
-        Invalid username and password.
+        Nombre de usuario o contraseña no valida
     </div>
+    <!--Mensaje cuando se desconecta
     <div th:if="${param.logout}">
         You have been logged out.
-    </div>
+    </div>-->
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <div class="fadeIn first">
@@ -26,7 +27,8 @@
 
             <!-- Remind Passowrd -->
             <div id="formFooter">
-                <a class="underlineHover" href="#">Forgot Password?</a>
+                <a class="underlineHover" href="#">Olvido su contraseña?</a>
+                <a class="underlineHover" href="/registration">Crear Cuenta?</a>
             </div>
         </div>
     </div>

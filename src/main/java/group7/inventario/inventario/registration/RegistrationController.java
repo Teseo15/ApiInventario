@@ -1,11 +1,11 @@
 package group7.inventario.inventario.registration;
 
-import lombok.AllArgsConstructor;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping(path = "api/v1/registration")
-
+@Controller
+@RequestMapping(path = "7fazadmin")
 public class RegistrationController {
 
     private final RegistrationService registrationService;
@@ -14,12 +14,16 @@ public class RegistrationController {
         this.registrationService = registrationService;
     }
 
-    @PostMapping
+
+
+    @PostMapping("/login")
     public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+        registrationService.register(request);
+        return "login";
     }
     @GetMapping(path = "confirm")
     public String confirm (@RequestParam("token")String token){
+
         return registrationService.confirmToken(token);
     }
 }

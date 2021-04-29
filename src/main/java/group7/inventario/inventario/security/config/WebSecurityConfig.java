@@ -31,11 +31,15 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/v*/registration/**")
+                .antMatchers("/fazadmin", "/fazadmin/login","/**/css/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/fazadmin/login")
                 .permitAll()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin();
+                .and()
+                .logout()
+                .permitAll();
     }
 
     @Override

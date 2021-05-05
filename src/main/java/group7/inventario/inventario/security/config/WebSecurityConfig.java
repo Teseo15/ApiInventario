@@ -32,7 +32,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/fazadmin", "/fazadmin/login", "/css/**").permitAll()
+                .antMatchers("/registrar", "/login","/user/registrar","/user/hola","/user/form","/css/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -40,7 +40,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll()
+                .permitAll();
     }
 
     @Override

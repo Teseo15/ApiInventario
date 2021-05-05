@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html  xmlns:th="https://www.thymeleaf.org">
 <head  th:replace="/layout/template :: header" >
 
 </head>
@@ -19,7 +18,9 @@
         </div>
 
         <!-- Login Form -->
-        <form th:action="@{/registration}" method="post">
+        <form th:action="@{/user/registrar}" method="post">
+            <input type="text" class="fadeIn second"name="firstname"  placeholder="name">
+            <input type="text" class="fadeIn second" name="lastname" placeholder="lastname">
             <input type="email" id="login" class="fadeIn second" name="username" placeholder="login">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="Sign In">
@@ -27,7 +28,7 @@
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="#">Olvido su contraseña?</a>
+
             <a class="underlineHover" href="/registration">Crear Cuenta?</a>
         </div>
     </div>

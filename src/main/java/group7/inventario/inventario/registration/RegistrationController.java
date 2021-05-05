@@ -2,10 +2,11 @@ package group7.inventario.inventario.registration;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping(path = "")
+@RestController
+@RequestMapping(path ="/user")
 public class RegistrationController {
 
     private final RegistrationService registrationService;
@@ -15,15 +16,25 @@ public class RegistrationController {
     }
 
 
+    @PostMapping(value="/registrar" )
+    public String registrar(@RequestBody RegistrationRequest request) {
+        return registrationService.register(request);
+    }
 
-    @PostMapping("/registration")
-    public String register(@RequestBody RegistrationRequest request) {
-        registrationService.register(request);
-        return "registro";
+    @PostMapping(value="/form" )
+    public String form() {
+        //registrationService.register(request);
+        return "register";
     }
     @GetMapping(path = "confirm")
     public String confirm (@RequestParam("token")String token){
 
         return registrationService.confirmToken(token);
+    }
+
+    @RequestMapping(value="/hola")
+    public String hola() {
+        //registrationService.register(request);
+        return "hola";
     }
 }

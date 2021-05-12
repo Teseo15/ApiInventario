@@ -5,6 +5,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class Vista {
+    
+    @RequestMapping("/")
+    public String index()
+    {
+        return "index";
+    }
+    @RequestMapping("/products")
+    public String dashboard()
+    {
+        return "products";
+    }
+
     @RequestMapping("/login")
     public String eliminar() {
 

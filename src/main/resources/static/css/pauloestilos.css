@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+*{
+	background: white;
+}
+
+.head{
+	height:150px;
+	background-color: black;
+}
+.sinp{
+	padding:0;
+}
+div.uno{
+	height:100px;
+	background-color: #e63946;
+}
+div.dos{
+	height:100px;
+	background-color:#f1faee;
+}
+div.tres{
+	height:200px;
+	background-color: #a8dadc;
+}
+div.cuatro{
+	height:200px;
+	background-color:#457b9d;
+}
+div.cinco{
+	height:200px;
+	background-color:#1d3557;
+}
+div.seis{
+	height:200px;
+	background-color:#f2cc8f;
+}
+div.siete{
+	height:200px;
+	background-color:#52b788;
+}
+div.ocho{
+	height:200px;
+	background-color:#e5e5e5;
+}
+div.nueve{
+	height:200px;
+	background-color:#9c6644;
+}
+div.diez{
+	height:200px;
+	background-color:#ffe8d6;
+}

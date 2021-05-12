@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+<link rel="stylesheet" href="" th:href="@{/css/paulostyles.css}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
+<script src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.js"></script>
+</head>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="navbar col-6 col-sm-7 col-md-8 col-lg-5 col-xl-7 menu-img">
+				 <a class="navbar-brand bg-transparent text-dark" href="#">
+    				<img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+    				Dashboard
+  				</a> 				
+			</div>		
+			<nav class="navbar navbar-expand-lg navbar-light col-4 col-sm-3 col-md-2 col-lg-5 col-xl-4 menu-img justify-content-end">
+  				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    				<span class="navbar-toggler-icon"></span>
+  				</button>
+  			<div class="collapse navbar-collapse bg-transparent justify-content-end" id="navbarNav">
+    			<ul class="navbar-nav bg-transparent text-center ">
+      				<li class="nav-item  active bg-white   "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">language <span class="sr-only">(current)</span><img src="" th:src="@{/img/world.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+      				<li class="nav-item  active bg-white  "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">News <span class="sr-only">(current)</span><img src="" th:src="@{/img/campana.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+      				<li class="nav-item  active bg-white  "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">Profile <span class="sr-only">(current)</span><img src="" th:src="@{/img/person.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+    			</ul>
+  			</div>
+			</nav>
+			<div class="navbar col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 menu-img" style="padding: 0px;">
+    			<a class="nav-link" href="#" style="padding: 0px;"><span class="sr-only">(current)</span><img src="" th:src="@{/img/exit3.svg}" width="60" height="60" class="d-inline-block bg-white" alt=""style="padding: 0px;"></a>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 col-sm-2  col-md-2  col-lg-1 col-xl-1 columone" style="padding-left: 0px;padding-right: 0px;">
+					
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center no-gutters">
+						<a class="nav-link text-dark lhover" href="#">
+  							<img  th:src="@{/img/dashboard.svg}" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de board" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;" >
+  							Board
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center ">
+  						<a class="nav-link text-dark lhover" th:href="@{/templates/dashboard}">
+  							<img src="/img/products.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de products" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Products
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/wallet.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de shopping" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							shopping
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/transfer.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de sales" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Sales
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/sales.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de gain" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Gain
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/people.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de people" width="40px" style="display:flex; 
+  							margin:0 auto;margin-top:30px;">
+  							People
+  						</a>
+					</div>	
+			</div>
+			<div class="col-8 col-sm-10  col-md-10  col-lg-11 col-xl-11 columtres" style="border-left-width: 1px;margin-top: 20px;">
+				<div class="row justify-content-center align-items-center ">
+					<form class="">
+					<h2>Create Product</h2>
+					<br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <input type="text" class="form-control" placeholder="Code Product">
+					    </div>
+					    <div class="col">
+					      <input type="text" class="form-control" placeholder="Name">
+					    </div>
+					  </div>
+					  <br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <select class="form-control">
+						  <option>Category </option>
+						  <option>Category A </option>
+						  <option>Category B </option>
+						  <option>Category C </option>
+						</select>
+					    </div>
+					    <div class="form-row ">
+					    </div>
+					  </div>
+					  <br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <input type="text" class="form-control" placeholder="Brand">
+					    </div>
+					    <div class="col">
+					      <input type="text" class="form-control" placeholder="Product Price">
+					    </div>
+					  </div>
+					  <br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <input type="text" class="form-control" placeholder="Stock">
+					    </div>
+					  </div>
+					  <br>
+					  <div class="form-group">
+					    <label for="exampleFormControlTextarea1">Product description</label>
+					    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					  </div>
+					  <br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <div class="card">
+						  <div class="card-header">
+						    Upload product image
+
+						  </div>
+						  <div class="card-body">
+						    <p class="card-text">upload an image of the product you want to register</p>
+						    <a href="#" class="btn btn-primary">upload image</a>
+						  </div>
+						</div>
+					    </div>
+					  </div>
+					  <br>
+					  <div class="form-row ">
+					    <div class="col">
+					      <button type="button" class="btn btn-danger btn-lg btn-block">Delete</button>
+					    </div>
+					    <div class="col">
+					      <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+					    </div>
+					  </div>
+					</form>
+										
+					
+				</div>		
+			</div>
+			
+			
+		</div>
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-12 col-sm-12 col-md12 col-lg-12 col-xl-12 text-center pt-5">
+					<div class="table-responsive ">
+					  	<table class="table table-striped ">
+						  <thead>
+						    <tr>
+						      <th scope="col">Image</th>
+						      <th scope="col">Code Product</th>
+						      <th scope="col">Name</th>
+						      <th scope="col">Category</th>
+						      <th scope="col">Brand</th>
+						      <th scope="col">Product Price</th>
+						      <th scope="col">Stock</th>
+						      <th scope="col">Product Description</th>
+						      <th scope="col">Actions</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th></th>
+						      <td><input type="text" class="form-control" id="inputcod1" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod2" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod3" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod4" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod5" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod6" placeholder="filter.."></td>
+						      <td><input type="text" class="form-control" id="inputcod7" placeholder="filter.."></td>
+						      <th scope="row"><img src="" th:src="@{/img/pen.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						      					<img src="" th:src="@{/img/delete.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						    </th>
+						    </tr>
+						    <tr>
+						      <th scope="row"><img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt=""></th>
+						      <td>001</td>
+						      <td>t-shit</td>
+						      <td>clothing</td>
+						      <td>Nike</td>
+						      <td>$100</td>
+						      <td>5</td>
+						      <td>summer polo by the brand nike in collaboration with supreme</td>
+						      <th scope="row"><img src="" th:src="@{/img/pen.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						      					<img src="" th:src="@{/img/delete.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						    </th>
+						    </tr>
+						    <tr>
+						      <th scope="row"><img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt=""></th>
+						      <td>001</td>
+						      <td>t-shit</td>
+						      <td>clothing</td>
+						      <td>Nike</td>
+						      <td>$100</td>
+						      <td>5</td>
+						      <td>summer polo by the brand nike in collaboration with supreme</td>
+						      <th scope="row"><img src="" th:src="@{/img/pen.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						      					<img src="" th:src="@{/img/delete.svg}" width="30" height="30" class="d-inline-block align-top" alt=""></th>
+						    </tr>
+						    						    <tr>
+						      <th scope="row"><img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt=""></th>
+						      <td>001</td>
+						      <td>t-shit</td>
+						      <td>clothing</td>
+						      <td>Nike</td>
+						      <td>$100</td>
+						      <td>5</td>
+						      <td>summer polo by the brand nike in collaboration with supreme</td>
+						      <th scope="row"><img src="" th:src="@{/img/pen.svg}" width="30" height="30" class="d-inline-block align-top" alt="">
+						      					<img src="" th:src="@{/img/delete.svg}" width="30" height="30" class="d-inline-block align-top" alt=""></th>
+						    </tr>								    						    
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-12 col-sm-12 col-md12 col-lg-12 col-xl-12  columtress bg-dark text-center pt-5">
+				</div>
+			</div>
+</div>
+<!--  -->
+<!--  -->
+
+<script type="text/javascript" src="" th:src="@{/js/actions.js}"></script>
+<script type="text/javascript" src="" th:src="@{/js/barras.js}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

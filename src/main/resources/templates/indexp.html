@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+<link rel="stylesheet" href="" th:href="@{/css/paulostyles.css}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="navbar col-6 col-sm-7 col-md-8 col-lg-5 col-xl-7 menu-img">
+				 <a class="navbar-brand bg-transparent text-dark" href="#">
+    				<img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+    				Dashboard
+  				</a> 				
+			</div>		
+			<nav class="navbar navbar-expand-lg navbar-light col-4 col-sm-3 col-md-2 col-lg-5 col-xl-4 menu-img justify-content-end">
+  				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    				<span class="navbar-toggler-icon"></span>
+  				</button>
+  			<div class="collapse navbar-collapse bg-transparent justify-content-end" id="navbarNav">
+    			<ul class="navbar-nav bg-transparent text-center ">
+      				<li class="nav-item  active bg-white   "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">language <span class="sr-only">(current)</span><img src="" th:src="@{/img/world.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+      				<li class="nav-item  active bg-white  "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">News <span class="sr-only">(current)</span><img src="" th:src="@{/img/campana.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+      				<li class="nav-item  active bg-white  "style="z-index: 9;">
+        				<a class="nav-link lhover"href="#">Profile <span class="sr-only">(current)</span><img src="" th:src="@{/img/person.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+      				</li>
+    			</ul>
+  			</div>
+			</nav>
+			<div class="navbar col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 menu-img" style="padding: 0px;">
+    			<a class="nav-link" href="#" style="padding: 0px;"><span class="sr-only">(current)</span><img src="" th:src="@{/img/exit3.svg}" width="60" height="60" class="d-inline-block bg-white" alt=""style="padding: 0px;"></a>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 col-sm-2  col-md-2  col-lg-1 col-xl-1 columone" style="padding-left: 0px;padding-right: 0px;">
+					
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center no-gutters">
+						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/dashboard.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de board" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;" >
+  							Board
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center ">
+  						<a class="nav-link text-dark lhover" th:href="@{/dashboard/productos}">
+  							<img src="/img/products.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de products" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Products
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/wallet.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de shopping" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							shopping
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/transfer.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de sales" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Sales
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/sales.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de gain" width="40px" style="display:flex;
+  							margin:0 auto;margin-top:30px;">
+  							Gain
+  						</a>
+					</div>
+					<div class="col-12 col-sm-12 col-md-12 col-lg 12 col-xl-12 columtres img-fondo text-center">
+  						<a class="nav-link text-dark lhover" href="#">
+  							<img src="/img/people.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de people" width="40px" style="display:flex; 
+  							margin:0 auto;margin-top:30px;">
+  							People
+  						</a>
+					</div>	
+			</div>
+			<div class="col-8 col-sm-10  col-md-10  col-lg-11 col-xl-11 columtres" style="border-left-width: 1px;margin-top: 20px;">
+				<div class="row justify-content-center align-items-center">
+
+					<div class="col-12 col-sm-6  col-md-6  col-lg-3 col-xl-3 bg-transparent columtres">
+						<a class="shadow-sm p-3 mb-5 bg-white rounded card nav-link text-dark bg-light text-center" href="#">
+  							<img src="/img/todaysales2.svg" class="figure-img img-fluid rounded bg-transparent " alt="Imagen de today sales" width="80px" style="display:flex;
+  							margin:0 auto">
+  							Today Sales: $150.000
+  						</a>
+					</div>
+					<div class="col-12 col-sm-6  col-md-6  col-lg-3 col-xl-3 bg-transparent columtres">
+						<a class="shadow-sm p-3 mb-5 bg-white rounded card nav-link text-dark bg-light text-center " href="#">
+  							<img src="/img/income.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de income" width="80px" style="display:flex;
+  							margin:0 auto">
+  							Income
+  						</a>
+					</div>
+					<div class="col-6 col-sm-6  col-md-6  col-lg-3 col-xl-3 bg-transparent columtres">
+						<a class="shadow-sm p-3 mb-5 bg-white rounded card nav-link text-dark bg-light text-center " href="#">
+  							<img src="/img/expense.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de shopping" width="80px" style="display:flex;
+  							margin:0 auto;">
+  							buys
+  						</a>
+					</div>
+					<div class="col-6 col-sm-6  col-md-6  col-lg-3 col-xl-3 bg-transparent columtres">
+						<a class="shadow-sm p-3 mb-5 bg-white rounded card nav-link text-dark bg-light text-center " href="#">
+  							<img src="/img/profit.svg" class="figure-img img-fluid rounded bg-transparent" alt="Imagen de profit" width="80px" style="display:flex ;z-index: 9;
+  							margin:0 auto;">
+  							Profit
+  						</a>
+					</div>
+					<div class=" col-12 col-sm-12 col-md-9 col-lg-7 mt-xl-5 col-xl-8 ">
+  						<canvas id="chart" class="shadow-sm p-3 rounded card nav-link  columtres">
+  						</canvas>
+					</div>
+					<div class="col-12 col-sm-6  col-md-6  col-lg-6 mt-xl-5 col-xl-4 ">
+						<canvas id="grafica" class="shadow-sm p-3 card nav-link  columtres">
+  						</canvas>
+					</div>
+				</div>		
+			</div>
+		</div>
+			<div class="row justify-content-center align-items-center ">
+				<div class="col-12 col-sm-12 col-md12 col-lg-12 col-xl-12 bg-dark columtress text-white text-center pt-5">
+				</div>
+			</div>
+		</div>
+<!--  -->
+<!--  -->
+
+<script type="text/javascript" src="" th:src="@{/js/barras.js}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

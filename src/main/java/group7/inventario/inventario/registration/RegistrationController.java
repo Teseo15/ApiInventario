@@ -2,39 +2,40 @@ package group7.inventario.inventario.registration;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
-@RequestMapping(path ="/user")
+@Controller
+@RequestMapping(path ="/user/registrar")
 public class RegistrationController {
-
+    public String mensaje;
     private final RegistrationService registrationService;
 
     public RegistrationController(RegistrationService registrationService) {
         this.registrationService = registrationService;
     }
 
-
-    @PostMapping(value="/registrar" )
-    public String registrar(@RequestBody RegistrationRequest request) {
+    @PostMapping
+    public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
     }
-
-    @PostMapping(value="/form" )
-    public String form() {
-        //registrationService.register(request);
-        return "register";
-    }
     @GetMapping(path = "confirm")
-    public String confirm (@RequestParam("token")String token){
+    public Object confirm (@RequestParam("token")String token){
+        mensaje = registrationService.confirmToken(token);
 
-        return registrationService.confirmToken(token);
+        if(mensaje == "confirmed"){
+            return dashboard();
+        }else{
+            return mensaje;
+        }
+
     }
 
-    @RequestMapping(value="/hola")
-    public String hola() {
-        //registrationService.register(request);
-        return "hola";
+    @RequestMapping("/dasboard")
+    public RedirectView dashboard(){
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:8080/dasboard");
+        return redirectView;
     }
 }

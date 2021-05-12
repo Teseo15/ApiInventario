@@ -10,9 +10,10 @@ public class ControllerSecuryWeb implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/").setViewName("dashboard");
-        registry.addViewController("/dashboard").setViewName("dashboard");
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/dashboard").setViewName("index");
         registry.addViewController("/registrar").setViewName("register");
+        registry.addViewController("/user/registrar").setViewName("index");
 
     }
     public void addResourceHandlers(ResourceHandlerRegistry registry){

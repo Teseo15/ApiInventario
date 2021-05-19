@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="" th:href="@{/css/styles.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.css">
+    <script src="https://cdn.datatables.net/v/bs4-4.1.1/dt-1.10.18/datatables.min.js"></script>
+</head>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="navbar col-6 col-sm-7 col-md-8 col-lg-5 col-xl-7 menu-img">
+            <a class="navbar-brand bg-transparent text-dark" href="#">
+                <img src="" th:src="@{/img/logo.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+                Dashboard
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light col-4 col-sm-3 col-md-2 col-lg-5 col-xl-4 menu-img justify-content-end">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-transparent justify-content-end" id="navbarNav">
+                <ul class="navbar-nav bg-transparent text-center ">
+                    <li class="nav-item  active bg-white   "style="z-index: 9;">
+                        <a class="nav-link lhover"href="#">language <span class="sr-only">(current)</span><img src="" th:src="@{/img/world.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+                    </li>
+                    <li class="nav-item  active bg-white  "style="z-index: 9;">
+                        <a class="nav-link lhover"href="#">News <span class="sr-only">(current)</span><img src="" th:src="@{/img/campana.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+                    </li>
+                    <li class="nav-item  active bg-white  "style="z-index: 9;">
+                        <a class="nav-link lhover"href="#">Profile <span class="sr-only">(current)</span><img src="" th:src="@{/img/person.svg}" width="20" height="20" class="d-inline-block align-top bg-transparent" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="navbar col-2 col-sm-2 col-md-2 col-lg-2 col-xl-1 menu-img" style="padding: 0px;">
+            <a class="nav-link" href="#" style="padding: 0px;"><span class="sr-only">(current)</span><img src="" th:src="@{/img/exit3.svg}" width="60" height="60" class="d-inline-block bg-white" alt=""style="padding: 0px;"></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <button type="button" class="btn btn-outline-primary  btn-lg btn-block" style="margin-top: 20px; margin-bottom: 20px;">back to the board</button>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <button type="button" class="btn btn-outline-primary  btn-lg btn-block" style="margin-top: 20px; margin-bottom: 20px;">SalesList</button>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div>
+                <form class="card nav-link text-dark">
+                    <div class="form-row bg-white">
+                        <div class="form-group col-md-6 bg-white">
+                            <label for="example-datetime-local-input" class="bg-white">Date</label>
+                            <input class="form-control"  type="date" >
+                        </div>
+                        <div class="form-group col-md-6 bg-white">
+                            <label for=""class="bg-white">Customer</label>
+                            <input type="text" class="form-control" placeholder="Customer">
+                        </div>
+                        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-white" style="margin-top: 40px;">
+                            <label for=""class="bg-white">Product</label>
+                            <input type="text" class="form-control" placeholder="Search product by code or name">
+                        </div>
+
+                        <div class=" table-responsive form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-white" style="margin-top: 40px;">
+                            <label for=""class="bg-white">Order Items*</label>
+                            <table class="table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Net Unit Price</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Discount</th>
+                                    <th scope="col">Tax</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">(x)</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>71087180</td>
+                                    <td>15.000 $</td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                    <td>0.00 $</td>
+                                    <td>0.00 $</td>
+                                    <td>15.00 $</td>
+                                    <td>Ⓧ</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-transparent">
+                            <div class="table-responsive form-group col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2 bg-white" style="margin-top: 40px;">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Order Tax</th>
+                                        <td>	0.00 $ (0.00 %)</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Discount</th>
+                                        <td>	0.00 $</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Shipping</th>
+                                        <td>	0.00 $</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Grand Total</th>
+                                        <td>	15.00 $</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Order Tax</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                                <input type="text" class="form-control"  placeholder="0" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Discount</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control"  placeholder="0" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Shipping</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control"  placeholder="0" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Status</label>
+                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref1">
+                                <option selected>Choose...</option>
+                                <option value="1">Completed</option>
+                                <option value="2">Pending</option>
+                                <option value="3">Ordered</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Payment Status</label>
+                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2">
+                                <option selected>Choose...</option>
+                                <option value="1">Paid</option>
+                                <option value="2">Partial</option>
+                                <option value="3">Pending</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Payment choice</label>
+                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref3">
+                                <option selected>Choose...</option>
+                                <option value="1">Cash</option>
+                                <option value="2">Credit card</option>
+                                <option value="3">cheque</option>
+                                <option value="3">Wester Union</option>
+                                <option value="3">Bank Transfer</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3 bg-white">
+                            <label class="bg-white">Amount</label>
+                            <input type="text" class="form-control"placeholder="Amount">
+                        </div>
+                        <div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-white">
+                            <label class="bg-white" for="exampleFormControlTextarea1">Notes</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="row justify-content-center align-items-center ">
+                <div class="col-12 col-sm-12 col-md12 col-lg-12 col-xl-12 bg-dark columtress text-white text-center pt-5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--  -->
+<!--  -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -14,11 +14,12 @@
 	color: #fdf0d5;
 }
 .contenedoro {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
+
 .columone{
-	height:900px;
+	height:1000px;
 }
 .columdos{
 	height:900px;
@@ -45,8 +46,8 @@
 	height:300px;
 }
 #mydatatable tfoot input{
-    width: 100% !important;
+	width: 100% !important;
 }
 #mydatatable tfoot {
-    display: table-header-group !important;
+	display: table-header-group !important;
 }

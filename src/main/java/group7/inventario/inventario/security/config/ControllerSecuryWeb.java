@@ -15,6 +15,7 @@ public class ControllerSecuryWeb implements WebMvcConfigurer {
         registry.addViewController("/dashboard/productos").setViewName("products");
         registry.addViewController("/registrar").setViewName("register");
         registry.addViewController("/user/registrar").setViewName("index");
+        registry.addViewController("/dashboard/sales").setViewName("salescreate");
 
     }
     public void addResourceHandlers(ResourceHandlerRegistry registry){

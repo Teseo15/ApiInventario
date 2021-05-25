@@ -1,16 +1,19 @@
 package group7.inventario.inventario.categoria;
 
-import group7.inventario.inventario.producto.Producto;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-
 @Entity( name = "Categoria")
 @Table(name = "categoria")
 public class Categoria {
     @Id
+    @SequenceGenerator(
+            name = "categoria_sequence",
+            sequenceName = "categoria_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "categoria_sequence"
+    )
     private Long id;
     private String nombre;
 
@@ -32,6 +35,10 @@ public class Categoria {
 
     public Categoria() {
 
+    }
+
+    public Categoria(String nombre) {
+        this.nombre = nombre;
     }
 
     public Long getId() {

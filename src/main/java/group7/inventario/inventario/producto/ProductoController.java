@@ -1,6 +1,7 @@
 package group7.inventario.inventario.producto;
 
 
+import group7.inventario.inventario.marca.Marca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,5 +27,12 @@ public class ProductoController {
     public ResponseEntity<Producto> registerNewProducto(@RequestBody Producto producto){
         Producto newproducto = productoService.addNewProducto(producto);
         return new  ResponseEntity<>(newproducto,HttpStatus.OK);
+    }
+    @GetMapping(path = "/marca/{marcaId}")
+    public ResponseEntity<List<Producto>> mostrarProductos(@PathVariable("marcaId") long id){
+
+        List<Producto> marcas = productoService.getProductoByMarca(id);
+
+        return new ResponseEntity<>(marcas, HttpStatus.OK);
     }
 }

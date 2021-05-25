@@ -34,5 +34,15 @@ public class ProductoService {
         System.out.println(producto);
         return productoRepository.save(producto);
     }
+    //Listar Productos por marca
+    public List<Producto>getProductoByMarca(long id){
+        return productoRepository.findProductoByMarcaExists(id);
+
+    }
+    //Buscar Productos
+    public Optional<Producto>buscarProducto(long id){
+        return productoRepository.findById(id);
+
+    }
 
 }

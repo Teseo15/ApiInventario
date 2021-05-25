@@ -1,8 +1,10 @@
 package group7.inventario.inventario.producto;
 
 import group7.inventario.inventario.categoria.Categoria;
+import group7.inventario.inventario.marca.Marca;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity(name = "Producto")
 @Table(name = "producto")
@@ -21,64 +23,68 @@ public class Producto {
     private String nombre;
     private String descripcion;
 
+
+    private Date vencimiento;
+
     @Column(
             nullable = false
             // unique = true
             )
-    private Double precio_compra;
+    private Double precio_costo_unitario;
 
     @Column(nullable = false)
-    private Double precio_venta;
+    private Double precio_venta_unitario;
 
     @Column(nullable = true)
-    private Integer cantidad;
-
+    private int cantidad;
     @ManyToOne
-    /*@JoinColumn(
-            //  name = "student_id",
-            nullable = false,
-
-            // referencedColumnName = "id",
-            foreignKey = @ForeignKey(
-                    name = "producto_categoria_fk"
-            )
-    )*/
     private Categoria categoria;
+    @ManyToOne
+    private Marca marca;
+    private String image;
 
     public Producto() {
     }
 
-    public Producto(String descripcion, Double precio_compra, Double precio_venta, Integer cantidad, Categoria categoria) {
-        this.descripcion = descripcion;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
-        this.cantidad = cantidad;
-        this.categoria = categoria;
-    }
-
-    public Producto(Long id, String descripcion, Double precio_compra, Double precio_venta, Integer cantidad, Categoria categoria) {
+    public Producto(Long id, String nombre, String descripcion, Date vencimiento, Double precio_costo_unitario, Double precio_venta_unitario, int cantidad, Categoria categoria, Marca marca, String image) {
         this.id = id;
+        this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
+        this.vencimiento = vencimiento;
+        this.precio_costo_unitario = precio_costo_unitario;
+        this.precio_venta_unitario = precio_venta_unitario;
         this.cantidad = cantidad;
         this.categoria = categoria;
+        this.marca = marca;
+        this.image = image;
     }
 
-    public Integer getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public Producto(Long id, String descripcion, Double precio_compra, Double precio_venta, Categoria categoria) {
-        this.id = id;
+    public Producto(String nombre, String descripcion, Date vencimiento, Double precio_costo_unitario, Double precio_venta_unitario, int cantidad, Categoria categoria, Marca marca, String image) {
+        this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
+        this.vencimiento = vencimiento;
+        this.precio_costo_unitario = precio_costo_unitario;
+        this.precio_venta_unitario = precio_venta_unitario;
+        this.cantidad = cantidad;
         this.categoria = categoria;
+        this.marca = marca;
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", vencimiento=" + vencimiento +
+                ", precio_costo_unitario=" + precio_costo_unitario +
+                ", precio_venta_unitario=" + precio_venta_unitario +
+                ", cantidad=" + cantidad +
+                ", categoria=" + categoria +
+                ", marca=" + marca +
+                ", image='" + image + '\'' +
+                '}';
     }
 
     public Long getId() {
@@ -87,16 +93,6 @@ public class Producto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Producto(Long id, String nombre, String descripcion, Double precio_compra, Double precio_venta, Integer cantidad, Categoria categoria) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
-        this.cantidad = cantidad;
-        this.categoria = categoria;
     }
 
     public String getNombre() {
@@ -115,20 +111,36 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public Double getPrecio_compra() {
-        return precio_compra;
+    public Date getVencimiento() {
+        return vencimiento;
     }
 
-    public void setPrecio_compra(Double precio_compra) {
-        this.precio_compra = precio_compra;
+    public void setVencimiento(Date vencimiento) {
+        this.vencimiento = vencimiento;
     }
 
-    public Double getPrecio_venta() {
-        return precio_venta;
+    public Double getPrecio_costo_unitario() {
+        return precio_costo_unitario;
     }
 
-    public void setPrecio_venta(Double precio_venta) {
-        this.precio_venta = precio_venta;
+    public void setPrecio_costo_unitario(Double precio_costo_unitario) {
+        this.precio_costo_unitario = precio_costo_unitario;
+    }
+
+    public Double getPrecio_venta_unitario() {
+        return precio_venta_unitario;
+    }
+
+    public void setPrecio_venta_unitario(Double precio_venta_unitario) {
+        this.precio_venta_unitario = precio_venta_unitario;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public Categoria getCategoria() {
@@ -139,14 +151,19 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    @Override
-    public String toString() {
-        return "Producto{" +
-                "id=" + id +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio_compra=" + precio_compra +
-                ", precio_venta=" + precio_venta +
-                ", categoria=" + categoria +
-                '}';
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

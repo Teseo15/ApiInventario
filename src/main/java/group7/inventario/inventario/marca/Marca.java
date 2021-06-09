@@ -30,6 +30,10 @@ public class Marca {
         this.nombre = nombre;
     }
 
+    public Marca(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Long getId() {
         return id;
     }

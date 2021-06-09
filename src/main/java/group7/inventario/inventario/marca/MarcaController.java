@@ -27,7 +27,7 @@ public class MarcaController {
     @PostMapping(path = "/add")
     public ResponseEntity<Marca> registerNewMarca(@RequestBody Marca marca){
         Marca newMarca = marcaService.addNewMarca(marca);
-        return new  ResponseEntity<>(newMarca,HttpStatus.OK);
+        return new  ResponseEntity<>(newMarca,HttpStatus.CREATED);
     }
 
 }

@@ -34,7 +34,7 @@ public class Categoria {
     private List<Producto> producto = new ArrayList<>();*/
 
     public Categoria() {
-
+        super();
     }
 
     public Categoria(String nombre) {

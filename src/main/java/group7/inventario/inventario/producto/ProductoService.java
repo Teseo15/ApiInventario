@@ -44,5 +44,9 @@ public class ProductoService {
         return productoRepository.findById(id);
 
     }
+    //Actualizar Producto
+    public Producto updateProducto(Producto producto) {
+        return productoRepository.save(producto);
+    }
 
 }

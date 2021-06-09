@@ -26,7 +26,7 @@ public class ProductoController {
     @PostMapping(path = "/add")
     public ResponseEntity<Producto> registerNewProducto(@RequestBody Producto producto){
         Producto newproducto = productoService.addNewProducto(producto);
-        return new  ResponseEntity<>(newproducto,HttpStatus.OK);
+        return new  ResponseEntity<>(newproducto,HttpStatus.CREATED);
     }
     @GetMapping(path = "/marca/{marcaId}")
     public ResponseEntity<List<Producto>> mostrarProductos(@PathVariable("marcaId") long id){
